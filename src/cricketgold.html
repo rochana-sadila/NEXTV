@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXBEEM</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<video id="video" controls   class="hidden-xs hidden-sm hidden-md hidden-custom videosize embed-responsive-item" autoplay="autoplay" loop="loop"></video>
+
+
+
+
+<script>
+  var video = document.getElementById('video');
+  if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource('https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-65e0c8c6d899afe817b9d224/variant.m3u8?url=2678f715fec0e29045bc0c92eb9f55dc-1e1a09db7dfa3d235620918387825595231e7985db5977a7146b8e7443cf6e711c7d7d0a96c339bda2ddd9ab85fee464868865ed1882a7201026277ac3c3eb52a87a38967270255ec1f3f91391b0f3302048f918c5789aae20aa5fe4eadc4e923e4a3613c6969206efd738243a052a383a402275b69f970337eb653a197d697dcbd06236ea4d71f234abb807ca50a79c24a9df63315c8e92792f004d2a78672d&x-plex-token=e2_eQDVhVjs96dY-FW-J&x-plex-advertising-identifier=&x-plex-advertising-donottrack=0&x-plex-provider-streaming-start=1720885501');
+    hls.attachMedia(video);
+    video.play();
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = 'https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-65e0c8c6d899afe817b9d224/variant.m3u8?url=2678f715fec0e29045bc0c92eb9f55dc-1e1a09db7dfa3d235620918387825595231e7985db5977a7146b8e7443cf6e711c7d7d0a96c339bda2ddd9ab85fee464868865ed1882a7201026277ac3c3eb52a87a38967270255ec1f3f91391b0f3302048f918c5789aae20aa5fe4eadc4e923e4a3613c6969206efd738243a052a383a402275b69f970337eb653a197d697dcbd06236ea4d71f234abb807ca50a79c24a9df63315c8e92792f004d2a78672d&x-plex-token=e2_eQDVhVjs96dY-FW-J&x-plex-advertising-identifier=&x-plex-advertising-donottrack=0&x-plex-provider-streaming-start=1720885501';
+    video.addEventListener('loadedmetadata',function() {
+      video.play();
+    });
+  }
+ 
+</script>
+
+</body>
+</html>

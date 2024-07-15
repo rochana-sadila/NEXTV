@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXBEEM</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<video id="video" controls   class="hidden-xs hidden-sm hidden-md hidden-custom videosize embed-responsive-item" autoplay="autoplay" loop="loop"></video>
+
+
+
+
+<script>
+  var video = document.getElementById('video');
+  if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource('https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-65fee252a398630d5911337d/variant.m3u8?url=2b72dd628e8d4aaa960075bdf2463ca0-a32ea4d16183863bd14fbaa5addcd75e16cf1605dce06e3f6fcd0b412de50183ee9d8a0856e645deb22c4e6ed449c7681d1012b185cde472d643311cd1a853aafe2c560f942790e572807074dc202d33338fc7fb916f0849225918caf1126f1c22966a620b3d7712f5222f28ce90a892e2d17b1d788e5c280c60b9e988f257fafe0151dbe6efac6ac82377c47ec7bb09703da276d95010eab523fcc3ad1e6220fccbead864b09be4ecbaf79586b669e9e5552e9850aaeababa6576db1898de69dec631f650e56e08fd3339e8fbb01233&x-plex-token=JjH8wxHVQ16uVb5H1Ew8&x-plex-advertising-identifier=&x-plex-advertising-donottrack=0&x-plex-provider-streaming-start=1720961682');
+    hls.attachMedia(video);
+    video.play();
+  }
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = 'https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-65fee252a398630d5911337d/variant.m3u8?url=2b72dd628e8d4aaa960075bdf2463ca0-a32ea4d16183863bd14fbaa5addcd75e16cf1605dce06e3f6fcd0b412de50183ee9d8a0856e645deb22c4e6ed449c7681d1012b185cde472d643311cd1a853aafe2c560f942790e572807074dc202d33338fc7fb916f0849225918caf1126f1c22966a620b3d7712f5222f28ce90a892e2d17b1d788e5c280c60b9e988f257fafe0151dbe6efac6ac82377c47ec7bb09703da276d95010eab523fcc3ad1e6220fccbead864b09be4ecbaf79586b669e9e5552e9850aaeababa6576db1898de69dec631f650e56e08fd3339e8fbb01233&x-plex-token=JjH8wxHVQ16uVb5H1Ew8&x-plex-advertising-identifier=&x-plex-advertising-donottrack=0&x-plex-provider-streaming-start=1720961682';
+    video.addEventListener('loadedmetadata',function() {
+      video.play();
+    });
+  }
+ 
+</script>
+
+</body>
+</html>
