@@ -1,0 +1,49 @@
+<html>
+<head>
+
+<meta http-equiv="refresh" content="8;url=index2.html" />
+
+<style>
+	body {
+		margin: auto
+	}
+
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+svg {
+	font-family: "Russo One", sans-serif;
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 8s infinite alternate;
+	stroke-width: 2;
+	stroke: #383838;
+	font-size: 122px;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(204,204,204,0); stroke: rgba(204,204,204,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(204,204,204,0); stroke: rgba(204,204,204,1); }
+	80%  {fill: rgba(204,204,204,0); stroke: rgba(204,204,204,1); stroke-width: 3; }
+	100% {
+		fill: rgba(204,204,204,1); stroke: rgba(204,204,204,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: #4B4B4B};
+
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<svg>
+			<text x="50%" y="50%" dy=".35em" text-anchor="middle">
+				NEXTV
+			</text>
+		</svg>
+	</div>
+</body>
+</html>
